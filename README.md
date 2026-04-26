@@ -43,7 +43,10 @@ O projeto foi desenvolvido em ambiente **Google Colab com aceleração por GPU (
 Devido ao volume de dados e arquivos de resultados, as imagens originais, os pesos dos modelos treinados e os logs de métricas estão disponíveis no link abaixo:
 
 🔗 **[Acesse a Pasta Compartilhada no Google Drive](https://drive.google.com/drive/folders/1zLoxEAL4GQQSpSXkrGD2G2smPgUa_2-b?usp=share_link)**
-*(Nesta pasta você encontrará os datasets de treino/teste e as capturas dos resultados de inferência)*
+*(Nesta pasta você encontrará os datasets de treino/teste)*
+
+🔗 **[Acesse a Arquivo Compartilhada no Google Drive](https://drive.google.com/file/d/1QrHlhDsjmlKlN3ViOFLqtrdUyx7hq-_t/view?usp=share_link)**
+*(Neste arquivo você encontrará notebook com as analises e as capturas dos resultados de inferência)*
 
 /content/drive/MyDrive/FIAP_IA/Computer_Vision/
 ```
