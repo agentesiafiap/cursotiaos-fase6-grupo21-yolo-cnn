@@ -57,7 +57,7 @@ Devido ao volume de dados e arquivos de resultados, as imagens originais, os pes
 │   │   ├── 📂 val/                    # Labels das imagens de validação
 │   └── 📄 data.yaml                   # Configuração das classes (Shih Tzu e Kicks)
 │
-├── 📂 dataset_farmatech_cnn/                    # Estrutura para Keras (Classificação)
+├── 📂 dataset_cnn/                    # Estrutura para Keras (Classificação)
 │   ├── 📂 train/                      # Dados de Treinamento
 │   │   ├── 📂 nissan_kicks/           # Imagens da classe 0
 │   │   └── 📂 shih_tzu/               # Imagens da classe 1
@@ -67,8 +67,6 @@ Devido ao volume de dados e arquivos de resultados, as imagens originais, os pes
 │   └── 📂 test/                       # Dados de Teste (Inéditos)
 │       ├── 📂 nissan_kicks/
 │       └── 📂 shih_tzu/
-│
-│
 └── 📄 HugoRodrigues_rm566891_pbl_fase6.ipynb  # Notebook Principal
 
 ## 📊 4. Achados Técnicos e Performance
