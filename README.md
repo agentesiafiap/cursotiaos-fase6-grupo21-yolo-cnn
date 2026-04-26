@@ -46,7 +46,7 @@ Devido ao volume de dados e arquivos de resultados, as imagens originais, os pes
 *(Nesta pasta você encontrará os datasets de treino/teste e as capturas dos resultados de inferência)*
 
 /content/drive/MyDrive/FIAP_IA/Computer_Vision/
-│
+```
 ├── 📂 dataset_farmtech/               # Estrutura para YOLOv5 (Detecção)
 │   ├── 📂 images/                     # Imagens originais (.jpg ou .png)
 │   │   ├── 📂 train/                  # Imagens de treinamento
@@ -57,7 +57,7 @@ Devido ao volume de dados e arquivos de resultados, as imagens originais, os pes
 │   │   ├── 📂 val/                    # Labels das imagens de validação
 │   └── 📄 data.yaml                   # Configuração das classes (Shih Tzu e Kicks)
 │
-├── 📂 dataset_cnn/                    # Estrutura para Keras (Classificação)
+├── 📂 dataset_farmtech_cnn/                    # Estrutura para Keras (Classificação)
 │   ├── 📂 train/                      # Dados de Treinamento
 │   │   ├── 📂 nissan_kicks/           # Imagens da classe 0
 │   │   └── 📂 shih_tzu/               # Imagens da classe 1
@@ -67,8 +67,7 @@ Devido ao volume de dados e arquivos de resultados, as imagens originais, os pes
 │   └── 📂 test/                       # Dados de Teste (Inéditos)
 │       ├── 📂 nissan_kicks/
 │       └── 📂 shih_tzu/
-└── 📄 HugoRodrigues_rm566891_pbl_fase6.ipynb  # Notebook Principal
-
+```
 ## 📊 4. Achados Técnicos e Performance
 
 ### Detecção (YOLOv5)
@@ -78,15 +77,46 @@ Devido ao volume de dados e arquivos de resultados, as imagens originais, os pes
 ### Classificação (Ablation Study CNN)
 Realizamos um comparativo rigoroso entre três arquiteturas:
 1.  **VGG16 (Benchmark):** 100% de Acurácia | Loss: 0.0000.
-2.  **CNN V1 (Rasa):** 100% de Acurácia | Loss: 0.000639 (Leve hesitação matemática).
+2.  **CNN V1 (Rasa):** 100% de Acurácia | Loss: 0.4748.
 3.  **CNN V2 (Profunda):** 100% de Acurácia | Loss: 0.0000.
 *Nossa CNN V2 customizada empatou com o benchmark de mercado, provando que a profundidade adicional e o ajuste fino do Softmax foram decisivos.*
 
 ## 🎬 5. Demonstração em Vídeo
 Confira a explicação detalhada do projeto, análise de gráficos e demonstração prática no link abaixo:
-👉 **[Link para o Vídeo de Apresentação (YouTube)](COLE_O_LINK_DO_VIDEO_AQUI)**
+👉 **[Link para o Vídeo de Apresentação (YouTube)]((https://youtu.be/bOZni4vVJX8)**
+
+## 6. Conclusão
+pós a realização de múltiplos experimentos e a análise das métricas de performance (Acurácia, Perda, Matriz de Confusão e Curvas de Aprendizado), a equipe técnica da **FarmTech Solutions** consolidou o seguinte diagnóstico para a expansão nas verticais de Saúde Animal e Segurança Patrimonial:
+
+###6.1. **Comparativo de Detecção (YOLOv5)**
 
 
+| Modelo | Performance Técnica | Viabilidade de Negócio |
+| :--- | :--- | :--- |
+| **YOLO Baseline** | Baixa.| Inadequado. | - |
+| **YOLO 30 Épocas** | Média. | PoC Inicial. | - |
+| **YOLO 60 Épocas** | Alta. | Recomendado. | - |
+
+
+###6.2. **Comparativo de Classificação (Estudo de Ablação CNN)**
+
+O teste cego realizado com imagens inéditas (Pasta `test`) revelou resultados de excelência, onde a métrica de desempate foi a Função de Perda (Loss):
+
+- **VGG16 (Benchmark)**: Atingiu **100% de Acurácia e Loss de 0.0000**. Provou que o problema é perfeitamente solucionável com Transfer Learning. Nota-se que presença de poucas epocas para atingir uma acurácia de 100%
+
+- **CNN V1 (Rasa):** Atingiu **100% de Acurácia** e um **Loss de 0.4748**. Embora assertiva, a arquitetura de apenas 1 blocos convolucionais carrega "hesitação" matemática, apresentando resultados distintos quando treinas com epocas diferentes
+
+- **CNN V2 (Profunda):** Atingiu **100% de Acurácia** e **Loss de 0.0000**. Ao adicionarmos mais camadas `Conv2D()` e `MaxPooling`, nossa arquitetura própria empatou com o benchmark de mercado (VGG16), com números de parâmetros menores, possibilidade sua utilização em maquinas de menor porte para que ocorra uma classificação adequada.
+
+###6.3. **Veredito para Produção**
+
+Para a expansão da FarmTech Solutions, o veredito final do grupo é a utilização do **YOLOv5** treinado por **60 épocas**.
+
+**Por que não usar apenas a CNN?**
+Embora a nossa **CNN V2** tenha atingido valores matemáticos adequados na classificação, ela é "cega" quanto à localização. Em sistemas de segurança patrimonial (identificação de veículos em portarias) e saúde animal (rastreamento de pets), a **Consciência Espacial** fornecida pelas Bounding Boxes do YOLO é indispensável.
+
+**Recomendação Final:**
+O projeto está aprovado para a transição de Prova de Conceito (PoC) para o ambiente de produção. A robustez demonstrada nas matrizes de confusão e o erro zero nos testes inéditos garantem que a FarmTech Solutions possui agora uma tecnologia de Visão Computacional.
 
 ## 📋 Licença
 
